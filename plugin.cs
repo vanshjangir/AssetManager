@@ -1,7 +1,6 @@
 #if TOOLS
 using Godot;
 using System;
-using Python.Runtime;
 
 [Tool]
 public partial class plugin : EditorPlugin
@@ -12,18 +11,7 @@ public partial class plugin : EditorPlugin
 	
 	public void ahhh()
 	{
-		Runtime.PythonDLL = "/usr/lib/libpython3.11.so.1.0";
-
-		PythonEngine.Initialize();
-
-		using (Py.GIL())
-		{
-			dynamic pythonModule = Py.Import("res://addons/AssetManager/loadasset/fetch.py");
-			dynamic lund = pythonModule.MyClass("Assets");
-			
-		}
-
-		PythonEngine.Shutdown();
+		//for python integration
 	}
 	
 	private void onButtonPressed(){
