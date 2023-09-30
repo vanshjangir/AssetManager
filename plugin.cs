@@ -9,9 +9,13 @@ public partial class plugin : EditorPlugin
 	Container container;
 	Control AssetWindow;
 	
+	TextureRect assetPreview;
 	public void ahhh()
 	{
-		//for python integration
+		assetPreview = new TextureRect();
+		assetPreview.Size = new Vector2(200,200);
+		assetPreview.Visible = false;
+		//rest for python integration
 	}
 	
 	private void onButtonPressed(){
@@ -27,7 +31,15 @@ public partial class plugin : EditorPlugin
 		AssetWindow.SetSize(new Vector2(1000,800));
 		AssetWindow.SetPosition(new Vector2(400,150));
 		editorRoot.AddChild(AssetWindow);
-		
+		string imagePath = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex";
+		//assetWindow.AddChild(assetPreview);
+		DisplayassetPreview(imagePath);
+			
+	}
+	private void DisplayassetPreview(string path){
+		Texture2D texture  = (Texture2D)GD.Load(path);
+		assetPreview.Texture = texture;
+		assetPreview.Visible = true;
 	}
 	
 	 
