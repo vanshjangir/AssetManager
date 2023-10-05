@@ -8,6 +8,10 @@ public partial class plugin : EditorPlugin
 	Button button;
 	Container container;
 	Control AssetWindow;
+	PackedScene pkdScene = ResourceLoader.Load<PackedScene>("res://addons/AssetManager/main.tscn");
+	
+	Panel homePanelIns;
+
 	
 	TextureRect assetPreview;
 	public void ahhh()
@@ -20,34 +24,32 @@ public partial class plugin : EditorPlugin
 	
 	private void onButtonPressed(){
 		
-		if (AssetWindow != null){
-			AssetWindow.Visible = ! AssetWindow.Visible;
-			return;
+		if (homePanelIns != null){
+			homePanelIns.Visible = ! homePanelIns.Visible;
+			return;	
 		}
-		
-		var editorRoot = GetTree().Root;
 
-		AssetWindow = new Panel();
-		AssetWindow.SetSize(new Vector2(1000,800));
-		AssetWindow.SetPosition(new Vector2(400,150));
-		editorRoot.AddChild(AssetWindow);
-		string imagePath = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex";
-		//assetWindow.AddChild(assetPreview);
-		DisplayassetPreview(imagePath);
-			
-	}
-	private void DisplayassetPreview(string path){
-		Texture2D texture  = (Texture2D)GD.Load(path);
-		assetPreview.Texture = texture;
-		assetPreview.Visible = true;
+
+		var editorRoot = GetTree().Root;
+		homePanelIns = (Panel)pkdScene.Instantiate();
+		editorRoot.AddChild(homePanelIns);
+		
 	}
 	
+	public override void _MakeVisible(bool visible)
+	{
+		if (homePanelIns != null)
+		{
+			homePanelIns.Visible = visible;
+		}
+	}
 	 
 	public override void _EnterTree()
 	{
 		button = new Button();
 		container = new Container();
 		var editorRoot = GetTree().Root;
+		
 		var onButtonPressedCallable = new Callable(this, nameof(onButtonPressed));
 		var ahhhCallable = new Callable(this, nameof(ahhh));
 		
@@ -57,6 +59,7 @@ public partial class plugin : EditorPlugin
 		container.SetPosition(new Vector2(1080,10));
 		container.AddChild(button);
 		editorRoot.AddChild(container);
+		
 	}
 
 	public override void _ExitTree()
