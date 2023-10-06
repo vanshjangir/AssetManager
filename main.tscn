@@ -1,8 +1,11 @@
-[gd_scene format=3 uid="uid://dopdl5nxl7xbf"]
+[gd_scene load_steps=2 format=3 uid="uid://dopdl5nxl7xbf"]
+
+[ext_resource type="Script" path="res://addons/AssetManager/HomePanel.cs" id="1_jvwye"]
 
 [node name="Panel" type="Panel"]
 offset_right = 1153.0
 offset_bottom = 650.0
+script = ExtResource("1_jvwye")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
@@ -21,9 +24,13 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Asset Manager"
 
-[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="itch_button" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_stretch_ratio = 6.0
 theme_override_font_sizes/font_size = 20
 text = "ahh()"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/itch_button" to="." method="_on_itch_button_pressed"]

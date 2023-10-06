@@ -7,6 +7,10 @@ public partial class plugin : EditorPlugin
 {
 	Button button;
 	Container container;
+<<<<<<< HEAD
+=======
+	Control AssetWindow;
+>>>>>>> a517309 (suck my dick)
 	PackedScene pkdScene = ResourceLoader.Load<PackedScene>("res://addons/AssetManager/main.tscn");
 	
 	Panel homePanelIns;
@@ -24,6 +28,7 @@ public partial class plugin : EditorPlugin
 			return;	
 		}
 
+<<<<<<< HEAD
 
 		var editorRoot = GetTree().Root;
 		homePanelIns = (Panel)pkdScene.Instantiate();
@@ -32,6 +37,29 @@ public partial class plugin : EditorPlugin
 	}
 	
 	
+=======
+		var editorRoot = GetTree().Root;
+		homePanelIns = (Panel)pkdScene.Instantiate();
+		editorRoot.AddChild(homePanelIns);
+		
+//		AssetWindow = new Panel();
+//		Label heading = new Label();
+//		heading.Text = "Asset Manager";
+//		AssetWindow.AddChild(heading);
+//		AssetWindow.SetSize(new Vector2(1000,800));
+//		AssetWindow.SetPosition(new Vector2(400,150));
+//		editorRoot.AddChild(AssetWindow);
+		
+	}
+	
+	public override void _MakeVisible(bool visible)
+	{
+		if (homePanelIns != null)
+		{
+			homePanelIns.Visible = visible;
+		}
+	}
+>>>>>>> a517309 (suck my dick)
 	 
 	public override void _EnterTree()
 	{
