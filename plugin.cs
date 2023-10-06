@@ -7,10 +7,7 @@ public partial class plugin : EditorPlugin
 {
 	Button button;
 	Container container;
-<<<<<<< HEAD
-=======
 	Control AssetWindow;
->>>>>>> a517309 (suck my dick)
 	PackedScene pkdScene = ResourceLoader.Load<PackedScene>("res://addons/AssetManager/main.tscn");
 	
 	Panel homePanelIns;
@@ -18,9 +15,9 @@ public partial class plugin : EditorPlugin
 	
 	public void ahhh()
 	{
-		
-		//rest for python integration
+		//for python integration
 	}
+	
 	private void onButtonPressed(){
 		
 		if (homePanelIns != null){
@@ -28,16 +25,6 @@ public partial class plugin : EditorPlugin
 			return;	
 		}
 
-<<<<<<< HEAD
-
-		var editorRoot = GetTree().Root;
-		homePanelIns = (Panel)pkdScene.Instantiate();
-		editorRoot.AddChild(homePanelIns);
-		
-	}
-	
-	
-=======
 		var editorRoot = GetTree().Root;
 		homePanelIns = (Panel)pkdScene.Instantiate();
 		editorRoot.AddChild(homePanelIns);
@@ -59,7 +46,6 @@ public partial class plugin : EditorPlugin
 			homePanelIns.Visible = visible;
 		}
 	}
->>>>>>> a517309 (suck my dick)
 	 
 	public override void _EnterTree()
 	{
@@ -81,6 +67,9 @@ public partial class plugin : EditorPlugin
 
 	public override void _ExitTree()
 	{
+		if(AssetWindow != null){
+			AssetWindow.QueueFree();
+		}
 		if(button != null){
 			button.QueueFree();
 		}
