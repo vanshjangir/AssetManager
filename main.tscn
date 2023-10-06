@@ -1,11 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://dopdl5nxl7xbf"]
 
-[ext_resource type="Script" path="res://addons/AssetManager/main.cs" id="1_6ydfq"]
+[ext_resource type="Script" path="res://addons/AssetManager/HomePanel.cs" id="1_14thq"]
 
 [node name="Panel" type="Panel"]
 offset_right = 1153.0
 offset_bottom = 650.0
-script = ExtResource("1_6ydfq")
+script = ExtResource("1_14thq")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
