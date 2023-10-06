@@ -7,18 +7,14 @@ public partial class plugin : EditorPlugin
 {
 	Button button;
 	Container container;
-	Control AssetWindow;
 	PackedScene pkdScene = ResourceLoader.Load<PackedScene>("res://addons/AssetManager/main.tscn");
 	
 	Panel homePanelIns;
 
 	
-	TextureRect assetPreview;
 	public void ahhh()
 	{
-		assetPreview = new TextureRect();
-		assetPreview.Size = new Vector2(200,200);
-		assetPreview.Visible = false;
+		
 		//rest for python integration
 	}
 	
@@ -64,9 +60,6 @@ public partial class plugin : EditorPlugin
 
 	public override void _ExitTree()
 	{
-		if(AssetWindow != null){
-			AssetWindow.QueueFree();
-		}
 		if(button != null){
 			button.QueueFree();
 		}
