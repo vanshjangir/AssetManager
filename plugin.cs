@@ -17,7 +17,6 @@ public partial class plugin : EditorPlugin
 		
 		//rest for python integration
 	}
-	
 	private void onButtonPressed(){
 		
 		if (homePanelIns != null){
@@ -32,13 +31,7 @@ public partial class plugin : EditorPlugin
 		
 	}
 	
-	public override void _MakeVisible(bool visible)
-	{
-		if (homePanelIns != null)
-		{
-			homePanelIns.Visible = visible;
-		}
-	}
+	
 	 
 	public override void _EnterTree()
 	{
