@@ -22,7 +22,10 @@ public partial class HomePanel : Panel
 	
 	private void onItchButtonPressed()
 	{
+		var yamateSound = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
+		yamateSound.Stream = GD.Load<AudioStream>("res://addons/AssetManager/yamate.wav");
 		GD.Print("NoLove!");
+		yamateSound.Play((float)0.03);
 	}
 }
 #endif
