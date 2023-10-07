@@ -7,7 +7,6 @@ public partial class plugin : EditorPlugin
 {
 	Button button;
 	Container container;
-	Control AssetWindow;
 	PackedScene pkdScene = ResourceLoader.Load<PackedScene>("res://addons/AssetManager/main.tscn");
 	
 	Panel homePanelIns;
@@ -38,14 +37,6 @@ public partial class plugin : EditorPlugin
 //		editorRoot.AddChild(AssetWindow);
 		
 	}
-	
-	public override void _MakeVisible(bool visible)
-	{
-		if (homePanelIns != null)
-		{
-			homePanelIns.Visible = visible;
-		}
-	}
 	 
 	public override void _EnterTree()
 	{
@@ -67,9 +58,6 @@ public partial class plugin : EditorPlugin
 
 	public override void _ExitTree()
 	{
-		if(AssetWindow != null){
-			AssetWindow.QueueFree();
-		}
 		if(button != null){
 			button.QueueFree();
 		}
