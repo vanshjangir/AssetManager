@@ -36,13 +36,6 @@ public partial class plugin : EditorPlugin
 		
 	}
 	
-	public override void _MakeVisible(bool visible)
-	{
-		if (homePanelIns != null)
-		{
-			homePanelIns.Visible = visible;
-		}
-	}
 	 
 	public override void _EnterTree()
 	{
@@ -80,7 +73,7 @@ public partial class plugin : EditorPlugin
 class Assets
 {
 	private ChromeDriver driver;
-	private string driverPath = @"C:\Users\devan\Desktop\DesktopFiles\godot\addons\AssetManager\chromedriver-win64\";
+	private string driverPath = @"path to addons\addons\AssetManager\chromedriver-win64";
 
 	public Assets()
 	{
