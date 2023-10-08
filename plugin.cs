@@ -80,7 +80,7 @@ public partial class plugin : EditorPlugin
 class Assets
 {
 	private ChromeDriver driver;
-	private string driverPath = @"/usr/bin/";
+	private string driverPath = @"C:\Users\devan\Desktop\DesktopFiles\godot\addons\AssetManager\chromedriver-win64\";
 
 	public Assets()
 	{
