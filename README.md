@@ -20,6 +20,7 @@ Before you can use the Godot Asset Manager (C#), make sure you have the followin
 - [C# support](https://docs.godotengine.org/en/stable/getting_started/scripting/c_sharp/index.html) configured within your Godot project.
 - [Selenium WebDriver](https://www.selenium.dev/documentation/en/webdriver/driver_requirements/#quick-reference) installed.
 - [ChromeDriver](https://sites.google.com/chromium.org/driver/) installed and available in your system's PATH.
+- NOTE: We have already added it into the repository u don't need to install it additionally.
 - A web browser (Google Chrome) installed on your machine.
 
 ## Getting Started
