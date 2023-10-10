@@ -11,14 +11,14 @@ public partial class plugin : EditorPlugin
 {
 	PackedScene homePanel = ResourceLoader.Load<PackedScene>("res://addons/AssetManager/main.tscn");
 	Panel homePanelInstance;
-
-
+	
 	public override void _EnterTree()
 	{
 		homePanelInstance = (Panel)homePanel.Instantiate();
 		// Add the main panel to the editor's main viewport.
 		GetEditorInterface().GetEditorMainScreen().AddChild(homePanelInstance);
 		// Hide the main panel. Very much required.
+		
 		_MakeVisible(false);
 	}
 
@@ -41,11 +41,12 @@ public partial class plugin : EditorPlugin
 		{
 			homePanelInstance.Visible = visible;
 		}
+		
 	}
 
 	public override string _GetPluginName()
 	{
-		return "Yamate Plugin";
+		return "Asset Manager";
 	}
 
 	public override Texture2D _GetPluginIcon()
@@ -59,13 +60,13 @@ public partial class plugin : EditorPlugin
 class Assets
 {
 	private ChromeDriver driver;
-	private string driverPath = @"path to addons\addons\AssetManager\chromedriver-win64";
+	private string driverPath = @"D:\Godot\Godot-python\addons\AssetManager\chromedriver-win64";
 
 	public Assets()
 	{
 		ChromeOptions coptions = new ChromeOptions();
 		coptions.AddArgument("--headless");
-		driver = new ChromeDriver(driverPath, coptions);
+		driver = new ChromeDriver(driverPath);
 	}
 
 	public List<Dictionary<string, string>> Load()

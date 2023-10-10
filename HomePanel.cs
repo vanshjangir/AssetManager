@@ -1,7 +1,7 @@
 #if TOOLS
 using Godot;
 using System;
-
+using System.Collections.Generic;
 [Tool]
 public partial class HomePanel : Panel
 {
@@ -22,10 +22,16 @@ public partial class HomePanel : Panel
 	
 	private void onItchButtonPressed()
 	{
-		var yamateSound = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
-		yamateSound.Stream = GD.Load<AudioStream>("res://addons/AssetManager/yamate.wav");
-		GD.Print("NoLove!");
-		yamateSound.Play((float)0.03);
+//		var yamateSound = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
+//		yamateSound.Stream = GD.Load<AudioStream>("res://addons/AssetManager/yamate.wav");
+//		yamateSound.Play((float)0.03);
+		GD.Print("button pressed!");
+		Assets asset = new Assets();
+		List<Dictionary<string, string>> assetList = asset.Load();
+		
+		for(int i = 0; i < assetList.Count; i++){
+			GD.Print(assetList[i]);
+		}
 	}
 }
 #endif

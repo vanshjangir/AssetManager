@@ -29,7 +29,7 @@ layout_mode = 2
 size_flags_horizontal = 10
 size_flags_stretch_ratio = 6.0
 theme_override_font_sizes/font_size = 20
-text = "ahh()"
+text = "Open Itch"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
