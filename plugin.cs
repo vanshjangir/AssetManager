@@ -9,66 +9,52 @@ using OpenQA.Selenium.Chrome;
 [Tool]
 public partial class plugin : EditorPlugin
 {
-	Button button;
-	Container container;
-	Control AssetWindow;
-	PackedScene pkdScene = ResourceLoader.Load<PackedScene>("res://addons/AssetManager/main.tscn");
-	Panel homePanelIns;
-	Assets assets = new Assets();
-	
-	public void ahhh()
-	{
-		//not doing python integration
-	}
-	
-	private void onButtonPressed(){
-		
-		
-		if (homePanelIns != null){
-			GD.Print("lol");
-			homePanelIns.Visible = ! homePanelIns.Visible;
-			return;
-		}
+	PackedScene homePanel = ResourceLoader.Load<PackedScene>("res://addons/AssetManager/main.tscn");
+	Panel homePanelInstance;
 
-		var editorRoot = GetTree().Root;
-		homePanelIns = (Panel)pkdScene.Instantiate();
-		editorRoot.AddChild(homePanelIns);
-		
-	}
-	
-	 
+
 	public override void _EnterTree()
 	{
-		button = new Button();
-		container = new Container();
-		var editorRoot = GetTree().Root;
-		
-		var onButtonPressedCallable = new Callable(this, nameof(onButtonPressed));
-		var ahhhCallable = new Callable(this, nameof(ahhh));
-		
-		button.Text = "OniChan_Yamete_kudasai";
-		button.Connect("pressed", onButtonPressedCallable);
-		button.Connect("pressed", ahhhCallable);
-		container.SetPosition(new Vector2(1080,10));
-		container.AddChild(button);
-		editorRoot.AddChild(container);
-		
+		homePanelInstance = (Panel)homePanel.Instantiate();
+		// Add the main panel to the editor's main viewport.
+		GetEditorInterface().GetEditorMainScreen().AddChild(homePanelInstance);
+		// Hide the main panel. Very much required.
+		_MakeVisible(false);
 	}
 
 	public override void _ExitTree()
 	{
-		if(button != null){
-			button.QueueFree();
+		if (homePanelInstance != null)
+		{
+			homePanelInstance.QueueFree();
 		}
-		if(container != null){
-			container.QueueFree();
+	}
+
+	public override bool _HasMainScreen()
+	{
+		return true;
+	}
+
+	public override void _MakeVisible(bool visible)
+	{
+		if (homePanelInstance != null)
+		{
+			homePanelInstance.Visible = visible;
 		}
-		if(homePanelIns != null){
-			homePanelIns.QueueFree();
-		}
-		
+	}
+
+	public override string _GetPluginName()
+	{
+		return "Yamate Plugin";
+	}
+
+	public override Texture2D _GetPluginIcon()
+	{
+		// Must return some kind of Texture for the icon.
+		return GetEditorInterface().GetBaseControl().GetThemeIcon("Node", "EditorIcons");
 	}
 }
+
 
 class Assets
 {
@@ -162,7 +148,4 @@ class Assets
 		}
 	}
 }
-
-
-
 #endif
