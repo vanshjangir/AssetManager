@@ -1,6 +1,7 @@
 #if TOOLS
 using Godot;
 using System;
+using System.Collections.Generic;
 
 [Tool]
 public partial class HomePanel : Panel
@@ -24,8 +25,20 @@ public partial class HomePanel : Panel
 	{
 		var yamateSound = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
 		yamateSound.Stream = GD.Load<AudioStream>("res://addons/AssetManager/button.wav");
-		GD.Print("NoLove!");
 		yamateSound.Play((float)0.03);
+		Assets assetsScraper = new Assets();
+		List<Dictionary<string, string>> assetList = assetsScraper.Load();
+		foreach (var assetData in assetList)
+	{
+		string imageUrl = assetData["image"];
+		string imageText = assetData["text"];
+		string imageLink = assetData["link"];
+		GD.Print($"Image URL: {imageUrl}");
+		GD.Print($"Asset Text: {imageText}");
+		GD.Print($"Asset Link: {imageLink}");
+		GD.Print();
+	}
+
 	}
 }
 #endif
