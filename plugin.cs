@@ -35,17 +35,11 @@ public partial class plugin : EditorPlugin
 		return true;
 	}
 
-	public override void _MakeVisible(bool visible)
-	{
-		if (homePanelInstance != null)
-		{
-			homePanelInstance.Visible = visible;
-		}
-	}
+	
 
 	public override string _GetPluginName()
 	{
-		return "Yamate Plugin";
+		return "Plugin";
 	}
 
 	public override Texture2D _GetPluginIcon()
