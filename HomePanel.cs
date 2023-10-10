@@ -23,7 +23,7 @@ public partial class HomePanel : Panel
 	private void onItchButtonPressed()
 	{
 		var yamateSound = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
-		yamateSound.Stream = GD.Load<AudioStream>("res://addons/AssetManager/yamate.wav");
+		yamateSound.Stream = GD.Load<AudioStream>("res://addons/AssetManager/button.wav");
 		GD.Print("NoLove!");
 		yamateSound.Play((float)0.03);
 	}
