@@ -39,7 +39,7 @@ public partial class plugin : EditorPlugin
 
 	public override string _GetPluginName()
 	{
-		return "Plugin";
+		return "Asset Manager";
 	}
 
 	public override Texture2D _GetPluginIcon()
