@@ -28,16 +28,20 @@ public partial class HomePanel : Panel
 		yamateSound.Play((float)0.03);
 		Assets assetsScraper = new Assets();
 		List<Dictionary<string, string>> assetList = assetsScraper.Load();
+		
 		foreach (var assetData in assetList)
-	{
-		string imageUrl = assetData["image"];
-		string imageText = assetData["text"];
-		string imageLink = assetData["link"];
-		GD.Print($"Image URL: {imageUrl}");
-		GD.Print($"Asset Text: {imageText}");
-		GD.Print($"Asset Link: {imageLink}");
-		GD.Print();
-	}
+		{
+			string imageUrl = assetData["image"];
+			string imageText = assetData["text"];
+			string imageLink = assetData["link"];
+			
+//			var img = new godot.TextureRect();$VScrollBar/VBoxContainer/TextureRect
+			
+			GD.Print($"Image URL: {imageUrl}");
+			GD.Print($"Asset Text: {imageText}");
+			GD.Print($"Asset Link: {imageLink}");
+			GD.Print();
+		}
 
 	}
 }

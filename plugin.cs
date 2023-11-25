@@ -53,6 +53,8 @@ public partial class plugin : EditorPlugin
 class Assets
 {
 	private ChromeDriver driver;
+
+
 	private string driverPath = @"C:\Users\devan\Desktop\DesktopFiles\godot\addons\AssetManager\chromedriver-win64";
 	//private StringBuilder output = new StringBuilder();
 
@@ -62,6 +64,8 @@ class Assets
 		service.HideCommandPromptWindow = true;
 		ChromeOptions coptions = new ChromeOptions();
 		coptions.AddArgument("--headless");
+
+
 		driver = new ChromeDriver(service);
 		
 	}
