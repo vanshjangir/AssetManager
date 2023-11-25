@@ -55,7 +55,7 @@ class Assets
 	private ChromeDriver driver;
 
 
-	private string driverPath = @"C:\Users\devan\Desktop\DesktopFiles\godot\addons\AssetManager\chromedriver-win64";
+	private string driverPath = @"D:\Godot\Godot-python\addons\AssetManager\chromedriver-win64";
 	//private StringBuilder output = new StringBuilder();
 
 	public Assets()
