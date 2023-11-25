@@ -53,13 +53,13 @@ public partial class plugin : EditorPlugin
 class Assets
 {
 	private ChromeDriver driver;
-	private string driverPath = @"path to addons\addons\AssetManager\chromedriver-win64";
+	private string driverPath = @"D:\Godot\Godot-python\addons\AssetManager\chromedriver-win64";
 
 	public Assets()
 	{
 		ChromeOptions coptions = new ChromeOptions();
 		coptions.AddArgument("--headless");
-		driver = new ChromeDriver(driverPath, coptions);
+		driver = new ChromeDriver(driverPath);
 	}
 
 	public List<Dictionary<string, string>> Load()
