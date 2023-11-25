@@ -70,6 +70,12 @@ texture_normal = ExtResource("3_jvvjw")
 layout_mode = 2
 texture_normal = ExtResource("4_s7kx1")
 
+[node name="Line 1" type="VBoxContainer" parent="PanelContainer2/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="PanelContainer2/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer2/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 100
