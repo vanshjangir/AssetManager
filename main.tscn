@@ -52,68 +52,85 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 150
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer2/ScrollContainer/VBoxContainer"]
+[node name="Row1" type="HBoxContainer" parent="PanelContainer2/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 100
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer2/ScrollContainer/VBoxContainer/HBoxContainer"]
+[node name="Element1" type="VBoxContainer" parent="PanelContainer2/ScrollContainer/VBoxContainer/Row1"]
 layout_mode = 2
 
-[node name="TextureButton3" type="TextureButton" parent="PanelContainer2/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="TextureButton3" type="TextureButton" parent="PanelContainer2/ScrollContainer/VBoxContainer/Row1/Element1"]
 layout_mode = 2
 texture_normal = ExtResource("2_a1jxv")
 texture_hover = ExtResource("3_t7hym")
 
-[node name="Label" type="Label" parent="PanelContainer2/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer2/ScrollContainer/VBoxContainer/Row1/Element1"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Lords of Pain"
 horizontal_alignment = 1
 
-[node name="TextureButton" type="TextureButton" parent="PanelContainer2/ScrollContainer/VBoxContainer/HBoxContainer"]
+[node name="Element2" type="VBoxContainer" parent="PanelContainer2/ScrollContainer/VBoxContainer/Row1"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="PanelContainer2/ScrollContainer/VBoxContainer/Row1/Element2"]
 layout_mode = 2
 texture_normal = ExtResource("3_jvvjw")
 
-[node name="TextureButton2" type="TextureButton" parent="PanelContainer2/ScrollContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer2/ScrollContainer/VBoxContainer/Row1/Element2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Pixel Fantasy \"Caves\""
+horizontal_alignment = 1
+
+[node name="Element3" type="VBoxContainer" parent="PanelContainer2/ScrollContainer/VBoxContainer/Row1"]
+layout_mode = 2
+
+[node name="TextureButton2" type="TextureButton" parent="PanelContainer2/ScrollContainer/VBoxContainer/Row1/Element3"]
 layout_mode = 2
 texture_normal = ExtResource("4_s7kx1")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer2/ScrollContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer2/ScrollContainer/VBoxContainer/Row1/Element3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Da De ba De da do do"
+
+[node name="Row2" type="HBoxContainer" parent="PanelContainer2/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 100
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer2/ScrollContainer/VBoxContainer/HBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer2/ScrollContainer/VBoxContainer/Row2"]
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("2_3a8o5")
 stretch_mode = 4
 
-[node name="TextureButton" type="TextureButton" parent="PanelContainer2/ScrollContainer/VBoxContainer/HBoxContainer2"]
+[node name="TextureButton" type="TextureButton" parent="PanelContainer2/ScrollContainer/VBoxContainer/Row2"]
 layout_mode = 2
 texture_normal = ExtResource("3_jvvjw")
 
-[node name="TextureButton2" type="TextureButton" parent="PanelContainer2/ScrollContainer/VBoxContainer/HBoxContainer2"]
+[node name="TextureButton2" type="TextureButton" parent="PanelContainer2/ScrollContainer/VBoxContainer/Row2"]
 layout_mode = 2
 texture_normal = ExtResource("4_s7kx1")
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer2/ScrollContainer/VBoxContainer"]
+[node name="Row3" type="HBoxContainer" parent="PanelContainer2/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 100
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer2/ScrollContainer/VBoxContainer/HBoxContainer3"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer2/ScrollContainer/VBoxContainer/Row3"]
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("2_3a8o5")
 stretch_mode = 4
 
-[node name="TextureButton" type="TextureButton" parent="PanelContainer2/ScrollContainer/VBoxContainer/HBoxContainer3"]
+[node name="TextureButton" type="TextureButton" parent="PanelContainer2/ScrollContainer/VBoxContainer/Row3"]
 layout_mode = 2
 texture_normal = ExtResource("3_jvvjw")
 
-[node name="TextureButton2" type="TextureButton" parent="PanelContainer2/ScrollContainer/VBoxContainer/HBoxContainer3"]
+[node name="TextureButton2" type="TextureButton" parent="PanelContainer2/ScrollContainer/VBoxContainer/Row3"]
 layout_mode = 2
 texture_normal = ExtResource("4_s7kx1")
 
