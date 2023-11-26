@@ -15,7 +15,7 @@ public partial class HomePanel : Panel
 		itch.Connect("pressed", itchCallable);
 	}
 	
-	public void imageLoad(string imageUrl, string localPath){
+	public Image imageLoad(string imageUrl, string localPath){
 		using (WebClient webClient = new WebClient())
 		{
 			try
@@ -27,7 +27,20 @@ public partial class HomePanel : Panel
 				Console.WriteLine($"Error downloading image: {ex.Message}");
 			}
 		}
+		
+		Image image = new Image();
+		try
+		{
+			image.Load(localPath);
+		}
+		catch (Exception ex)
+		{
+			GD.Print($"Error loading image texture: {ex.Message}");
+		}
+		return image;
 	}
+	
+	
 	
 	private void onItchButtonPressed()
 	{
