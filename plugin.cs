@@ -53,7 +53,7 @@ public partial class plugin : EditorPlugin
 class Assets
 {
 	private ChromeDriver driver;
-	private string driverPath = @"C:\Users\devan\Desktop\DesktopFiles\godot\addons\AssetManager\chromedriver-win64";
+	private string driverPath = @"E:\vansh\GodotTest\addons\AssetManager\chromedriver-win64";
 
 	public Assets()
 	{
