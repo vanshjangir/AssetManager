@@ -40,7 +40,18 @@ public partial class HomePanel : Panel
 		return image;
 	}
 	
-	
+	public void createTexture(Image assetImage, int count)
+	{
+		ImageTexture texture = ImageTexture.CreateFromImage(assetImage);
+		TextureRect textureRect = GetNode<TextureRect>($"PanelContainer/VBoxContainer/HBoxContainer2/textureRect{count}");
+		if(textureRect == null){
+			GD.Print("textureRect is null");
+		}else{
+			textureRect.Texture = texture;
+			
+		}
+		
+	}
 	
 	private void onItchButtonPressed()
 	{
@@ -61,7 +72,8 @@ public partial class HomePanel : Panel
 			GD.Print($"Asset Text: {imageText}");
 			GD.Print($"Asset Link: {imageLink}");
 			GD.Print();
-			imageLoad(imageUrl, localPath);
+			Image assetImage = imageLoad(imageUrl, localPath);
+			createTexture(assetImage, count);
 			count++;
 		}
 	}

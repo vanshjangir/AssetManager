@@ -31,6 +31,33 @@ size_flags_stretch_ratio = 6.0
 theme_override_font_sizes/font_size = 20
 text = "Open Itch.io"
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="textureRect8" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="textureRect7" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="textureRect6" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="textureRect5" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="textureRect4" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="textureRect3" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="textureRect2" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="textureRect1" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/itch_button" to="." method="_on_itch_button_pressed"]
