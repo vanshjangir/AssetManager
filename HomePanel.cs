@@ -51,9 +51,12 @@ public partial class HomePanel : Panel
 		Assets assetsScraper = new Assets();
 		List<Dictionary<string, string>> assetList = assetsScraper.Load();
 		int count = 1;
+		
+		VBoxContainer container = GetNode<VBoxContainer>("$PanelContainer2/ScrollContainer/VBoxContainer");
+		
 		foreach (var assetData in assetList)
 		{
-			string localPath = $@"E:\vansh\GodotTest\addons\AssetManager\tmp\image{count}.png";
+			string localPath = $@"D:\Godot\Godot-python\addons\AssetManager\tmp\image{count}.png";
 			string imageUrl = assetData["image"];
 			string imageText = assetData["text"];
 			string imageLink = assetData["link"];
@@ -61,9 +64,35 @@ public partial class HomePanel : Panel
 			GD.Print($"Asset Text: {imageText}");
 			GD.Print($"Asset Link: {imageLink}");
 			GD.Print();
-			imageLoad(imageUrl, localPath);
+			Image image = imageLoad(imageUrl, localPath);
 			count++;
+			
+			// Create a new TextureButton instance
+			TextureButton textureButton = container.GetNode<TextureButton>("$PanelContainer2/ScrollContainer/VBoxContainer/TextureButton");
+
+			// Set the texture to the downloaded image
+//			ImageTexture texture = new ImageTexture();
+			var texture = ImageTexture.CreateFromImage(image);
+			textureButton.TextureNormal = texture;
+
+			// Set other properties of the TextureButton if needed
+//			textureButton.RectMinSize = new Vector2(100, 100); // Adjust as needed
+
+			// Connect the button press signal to a method if needed
+			textureButton.Connect("pressed", new Callable(this, "_on_texture_button_pressed"));
+//			textureButton.HintTooltip = imageText;
+			
+			// Add the TextureButton to the container
+//			container.AddChild(textureButton);
 		}
+	}
+	
+	private void _on_texture_button_pressed()
+	{
+		GD.Print("lmao pressed a buttton !!");
 	}
 }
 #endif
+
+
+

@@ -1,16 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://dopdl5nxl7xbf"]
+[gd_scene load_steps=3 format=3 uid="uid://dopdl5nxl7xbf"]
 
 [ext_resource type="Script" path="res://addons/AssetManager/HomePanel.cs" id="1_jvwye"]
+[ext_resource type="Texture2D" uid="uid://deo3bi26yjusb" path="res://icon.svg" id="2_ajhwo"]
 
 [node name="Panel" type="Panel"]
-offset_right = 1153.0
+offset_right = 1250.0
 offset_bottom = 650.0
 script = ExtResource("1_jvwye")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
 offset_left = -2.0
-offset_right = 1148.0
+offset_right = 1247.0
 offset_bottom = 109.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
@@ -31,6 +32,27 @@ size_flags_stretch_ratio = 6.0
 theme_override_font_sizes/font_size = 20
 text = "Open Itch.io"
 
+[node name="PanelContainer2" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 107.0
+offset_right = 1249.0
+offset_bottom = 643.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer2/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 150
+
+[node name="TextureButton" type="TextureButton" parent="PanelContainer2/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_ajhwo")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/itch_button" to="." method="_on_itch_button_pressed"]
+[connection signal="pressed" from="PanelContainer2/ScrollContainer/VBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
