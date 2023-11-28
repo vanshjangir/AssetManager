@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dopdl5nxl7xbf"]
+[gd_scene load_steps=3 format=3 uid="uid://dopdl5nxl7xbf"]
 
 [ext_resource type="Script" path="res://addons/AssetManager/HomePanel.cs" id="1_jvwye"]
+[ext_resource type="Texture2D" uid="uid://b8itggthvr6cd" path="res://addons/AssetManager/tmp/image0.png" id="2_v861p"]
 
 [node name="Panel" type="Panel"]
 offset_right = 1246.0
@@ -38,32 +39,114 @@ offset_top = 113.0
 offset_right = 1247.0
 offset_bottom = 649.0
 
-[node name="Row0" type="HFlowContainer" parent="PanelContainer2"]
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer2"]
 layout_mode = 2
+
+[node name="HFlow" type="HFlowContainer" parent="PanelContainer2/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/h_separation = 130
 theme_override_constants/v_separation = 50
 
-[node name="textureRect0" type="TextureRect" parent="PanelContainer2/Row0"]
+[node name="Element0" type="VBoxContainer" parent="PanelContainer2/ScrollContainer/HFlow"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="textureRect" type="TextureRect" parent="PanelContainer2/ScrollContainer/HFlow/Element0"]
+layout_mode = 2
+texture = ExtResource("2_v861p")
+
+[node name="Button" type="Button" parent="PanelContainer2/ScrollContainer/HFlow/Element0"]
+layout_mode = 2
+tooltip_text = "Da ba dee da ba di"
+theme_override_font_sizes/font_size = 20
+text = "dsdklgfshfglsjdgfsdd"
+text_overrun_behavior = 3
+
+[node name="Element1" type="VBoxContainer" parent="PanelContainer2/ScrollContainer/HFlow"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="textureRect" type="TextureRect" parent="PanelContainer2/ScrollContainer/HFlow/Element1"]
 layout_mode = 2
 
-[node name="textureRect1" type="TextureRect" parent="PanelContainer2/Row0"]
+[node name="Button" type="Button" parent="PanelContainer2/ScrollContainer/HFlow/Element1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text_overrun_behavior = 3
+
+[node name="Element2" type="VBoxContainer" parent="PanelContainer2/ScrollContainer/HFlow"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="textureRect" type="TextureRect" parent="PanelContainer2/ScrollContainer/HFlow/Element2"]
 layout_mode = 2
 
-[node name="textureRect2" type="TextureRect" parent="PanelContainer2/Row0"]
+[node name="Button" type="Button" parent="PanelContainer2/ScrollContainer/HFlow/Element2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text_overrun_behavior = 3
+
+[node name="Element3" type="VBoxContainer" parent="PanelContainer2/ScrollContainer/HFlow"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="textureRect" type="TextureRect" parent="PanelContainer2/ScrollContainer/HFlow/Element3"]
 layout_mode = 2
 
-[node name="textureRect3" type="TextureRect" parent="PanelContainer2/Row0"]
+[node name="Button" type="Button" parent="PanelContainer2/ScrollContainer/HFlow/Element3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text_overrun_behavior = 3
+
+[node name="Element4" type="VBoxContainer" parent="PanelContainer2/ScrollContainer/HFlow"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="textureRect" type="TextureRect" parent="PanelContainer2/ScrollContainer/HFlow/Element4"]
 layout_mode = 2
 
-[node name="textureRect4" type="TextureRect" parent="PanelContainer2/Row0"]
+[node name="Button" type="Button" parent="PanelContainer2/ScrollContainer/HFlow/Element4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text_overrun_behavior = 3
+
+[node name="Element5" type="VBoxContainer" parent="PanelContainer2/ScrollContainer/HFlow"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="textureRect" type="TextureRect" parent="PanelContainer2/ScrollContainer/HFlow/Element5"]
 layout_mode = 2
 
-[node name="textureRect5" type="TextureRect" parent="PanelContainer2/Row0"]
+[node name="Button" type="Button" parent="PanelContainer2/ScrollContainer/HFlow/Element5"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text_overrun_behavior = 3
+
+[node name="Element6" type="VBoxContainer" parent="PanelContainer2/ScrollContainer/HFlow"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="textureRect" type="TextureRect" parent="PanelContainer2/ScrollContainer/HFlow/Element6"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer2"]
+[node name="Button" type="Button" parent="PanelContainer2/ScrollContainer/HFlow/Element6"]
 layout_mode = 2
-theme_override_constants/separation = 30
+theme_override_font_sizes/font_size = 20
+text_overrun_behavior = 3
+
+[node name="Element7" type="VBoxContainer" parent="PanelContainer2/ScrollContainer/HFlow"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="textureRect" type="TextureRect" parent="PanelContainer2/ScrollContainer/HFlow/Element7"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="PanelContainer2/ScrollContainer/HFlow/Element7"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text_overrun_behavior = 3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 

@@ -40,14 +40,18 @@ public partial class HomePanel : Panel
 		return image;
 	}
 	
-	public void createTexture(Image assetImage, int count)
+	public void createTexture(Image assetImage, String imageText, int count)
 	{
 		ImageTexture texture = ImageTexture.CreateFromImage(assetImage);
-		TextureRect textureRect = GetNode<TextureRect>($"PanelContainer2/Row0/textureRect{count}");
+		TextureRect textureRect = GetNode<TextureRect>($"PanelContainer2/ScrollContainer/HFlow/Element{count}/textureRect");
+		Button button = GetNode<Button>($"PanelContainer2/ScrollContainer/HFlow/Element{count}/Button");
+		
 		if(textureRect == null){
 			GD.Print("textureRect is null");
 		}else{
 			textureRect.Texture = texture;
+			button.Text = imageText;
+			button.HintTooltip = imageText;
 			
 		}
 		
@@ -73,7 +77,7 @@ public partial class HomePanel : Panel
 			GD.Print($"Asset Link: {imageLink}");
 			GD.Print();
 			Image assetImage = imageLoad(imageUrl, localPath);
-			createTexture(assetImage, count);
+			createTexture(assetImage, imageText, count);
 			count++;
 		}
 	}
