@@ -43,7 +43,7 @@ public partial class HomePanel : Panel
 	public void createTexture(Image assetImage, int count)
 	{
 		ImageTexture texture = ImageTexture.CreateFromImage(assetImage);
-		TextureRect textureRect = GetNode<TextureRect>($"PanelContainer2/VBoxContainer/Row{count/3}/textureRect{count%3}");
+		TextureRect textureRect = GetNode<TextureRect>($"PanelContainer2/Row0/textureRect{count}");
 		if(textureRect == null){
 			GD.Print("textureRect is null");
 		}else{
