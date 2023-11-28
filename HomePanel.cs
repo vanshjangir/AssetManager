@@ -43,7 +43,7 @@ public partial class HomePanel : Panel
 	public void createTexture(Image assetImage, int count)
 	{
 		ImageTexture texture = ImageTexture.CreateFromImage(assetImage);
-		TextureRect textureRect = GetNode<TextureRect>($"PanelContainer/VBoxContainer/HBoxContainer2/textureRect{count}");
+		TextureRect textureRect = GetNode<TextureRect>($"PanelContainer2/VBoxContainer/Row{count/3}/textureRect{count%3}");
 		if(textureRect == null){
 			GD.Print("textureRect is null");
 		}else{
@@ -61,10 +61,10 @@ public partial class HomePanel : Panel
 		
 		Assets assetsScraper = new Assets();
 		List<Dictionary<string, string>> assetList = assetsScraper.Load();
-		int count = 1;
+		int count = 0;
 		foreach (var assetData in assetList)
 		{
-			string localPath = $@"E:\vansh\GodotTest\addons\AssetManager\tmp\image{count}.png";
+			string localPath = $@"D:\Godot\Godot-python\addons\AssetManager\tmp\image{count}.png";
 			string imageUrl = assetData["image"];
 			string imageText = assetData["text"];
 			string imageLink = assetData["link"];
