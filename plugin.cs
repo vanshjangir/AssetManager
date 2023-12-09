@@ -123,20 +123,22 @@ class Assets
 			firstDownloadButton.Click();
 			Console.WriteLine("1");
 
-			// driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
+			driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
 			//Thread.Sleep(2000);
 			IWebElement directDownloadButton = driver.FindElement(By.CssSelector(".direct_download_btn"));
 			directDownloadButton.Click();
 			Console.WriteLine("1");
 
-			// driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
+			driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
 			//Thread.Sleep(2000);
 			Console.WriteLine("1");
 			IReadOnlyCollection<IWebElement> finalDownloadButtons = driver.FindElements(By.CssSelector(".button.download_btn"));
 			foreach (IWebElement element in finalDownloadButtons)
 			{
 				element.Click();
+				GD.Print("k");
 			}
+			GD.Print("kx");
 			//Thread.Sleep(2000);
 
 		}
