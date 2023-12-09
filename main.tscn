@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dopdl5nxl7xbf"]
+[gd_scene load_steps=2 format=3 uid="uid://dopdl5nxl7xbf"]
 
 [ext_resource type="Script" path="res://addons/AssetManager/HomePanel.cs" id="1_jvwye"]
-[ext_resource type="Texture2D" uid="uid://b8itggthvr6cd" path="res://addons/AssetManager/tmp/image0.png" id="2_v861p"]
 
 [node name="Panel" type="Panel"]
 offset_right = 1246.0
@@ -55,7 +54,6 @@ theme_override_constants/separation = 5
 
 [node name="textureRect" type="TextureRect" parent="PanelContainer2/ScrollContainer/HFlow/Element0"]
 layout_mode = 2
-texture = ExtResource("2_v861p")
 
 [node name="Button" type="Button" parent="PanelContainer2/ScrollContainer/HFlow/Element0"]
 layout_mode = 2

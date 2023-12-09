@@ -40,7 +40,7 @@ public partial class HomePanel : Panel
 		return image;
 	}
 	
-	public void createTexture(Image assetImage, String imageText, int count)
+	public void createTexture(Image assetImage, String imageText, String assetLink, int count)
 	{
 		ImageTexture texture = ImageTexture.CreateFromImage(assetImage);
 		TextureRect textureRect = GetNode<TextureRect>($"PanelContainer2/ScrollContainer/HFlow/Element{count}/textureRect");
@@ -51,8 +51,7 @@ public partial class HomePanel : Panel
 		}else{
 			textureRect.Texture = texture;
 			button.Text = imageText;
-			button.HintTooltip = imageText;
-			
+			button.Pressed += () => onDownloadButtonPressed(assetLink);
 		}
 		
 	}
@@ -71,15 +70,22 @@ public partial class HomePanel : Panel
 			string localPath = $@"D:\Godot\Godot-python\addons\AssetManager\tmp\image{count}.png";
 			string imageUrl = assetData["image"];
 			string imageText = assetData["text"];
-			string imageLink = assetData["link"];
+			string assetLink = assetData["link"];
 			GD.Print($"Image URL: {imageUrl}");
 			GD.Print($"Asset Text: {imageText}");
-			GD.Print($"Asset Link: {imageLink}");
+			GD.Print($"Asset Link: {assetLink}");
 			GD.Print();
 			Image assetImage = imageLoad(imageUrl, localPath);
-			createTexture(assetImage, imageText, count);
+			createTexture(assetImage, imageText, assetLink, count);
 			count++;
 		}
+	}
+	
+	private void onDownloadButtonPressed(String assetLink){
+		GD.Print("download button pressed");
+		Assets assetsDownloader = new Assets();
+		assetsDownloader.download(assetLink);
+		GD.Print("function ended!");
 	}
 }
 #endif
