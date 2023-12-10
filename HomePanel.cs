@@ -3,13 +3,12 @@ using Godot;
 using System;
 using System.Net;
 using System.Collections.Generic;
+using System.IO;
 
 [Tool]
 public partial class HomePanel : Panel
 {
 	Assets assetsScraper = new Assets();
-	
-	
 	public override void _Ready()
 	{
 		Button itch = GetNode<Button>("PanelContainer/VBoxContainer/HBoxContainer/itch_button");
@@ -68,7 +67,9 @@ public partial class HomePanel : Panel
 		int count = 0;
 		foreach (var assetData in assetList)
 		{
-			string localPath = $@"C:\Users\devan\Desktop\DesktopFiles\godot\addons\AssetManager\tmp\image{count}.png";
+			string localPath  = Path.Combine(Directory.GetCurrentDirectory(),"addons\\AssetManager\\tmp\\image{count}.png");
+			
+			//string localPath = $@"C:\Users\devan\Desktop\DesktopFiles\godot\addons\AssetManager\tmp\image{count}.png";
 			
 			string imageUrl = assetData["image"];
 			string imageText = assetData["text"];
@@ -76,6 +77,7 @@ public partial class HomePanel : Panel
 			GD.Print($"Image URL: {imageUrl}");
 			GD.Print($"Asset Text: {imageText}");
 			GD.Print($"Asset Link: {assetLink}");
+			//GD.Print($"JSON FILE:{dirPath}");
 			GD.Print();
 			Image assetImage = imageLoad(imageUrl, localPath);
 			createTexture(assetImage, imageText, assetLink, count);
