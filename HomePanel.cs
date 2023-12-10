@@ -9,11 +9,21 @@ using System.IO;
 public partial class HomePanel : Panel
 {
 	Assets assetsScraper = new Assets();
+	OptionButton dropDown;
+	String url;
+	String[] tags = {"Select tag","tileset","sprites","3d","2d","fighting"};
+	
 	public override void _Ready()
 	{
-		Button itch = GetNode<Button>("PanelContainer/VBoxContainer/HBoxContainer/itch_button");
-		var itchCallable = new Callable(this, nameof(onItchButtonPressed));
-		itch.Connect("pressed", itchCallable);
+		url = "https://itch.io/game-assets/free";
+		
+		Button itch = GetNode<Button>("PanelContainer/VBoxContainer/HBoxContainer/Node2D/itch_button");
+		itch.Pressed += () => LoadItch("https://itch.io/game-assets/free");
+		
+		dropDown = GetNode<OptionButton>("PanelContainer/VBoxContainer/Node2D/OptionButton");
+		var id = dropDown.GetSelectedId();
+		dropDown.ItemSelected += (id) => onItemSelected(id);
+		addDropItems();
 	}
 	
 	public Image imageLoad(string imageUrl, string localPath){
@@ -57,13 +67,13 @@ public partial class HomePanel : Panel
 		
 	}
 	
-	private void onItchButtonPressed()
+	private void LoadItch(String given_url)
 	{
 		var yamateSound = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
 		yamateSound.Stream = GD.Load<AudioStream>("res://addons/AssetManager/button.wav");
 		yamateSound.Play((float)0.03);
 		
-		List<Dictionary<string, string>> assetList = assetsScraper.Load();
+		List<Dictionary<string, string>> assetList = assetsScraper.Load(given_url);
 		int count = 0;
 		foreach (var assetData in assetList)
 		{
@@ -88,7 +98,24 @@ public partial class HomePanel : Panel
 	private void onDownloadButtonPressed(String assetLink){
 		GD.Print("download button pressed");
 		assetsScraper.download(assetLink);
-		GD.Print("function ended!");
+		GD.Print("Asset Downloaded!");
+	}
+	private void addDropItems(){
+		dropDown.Clear();
+		foreach(var item in tags)
+		{
+			dropDown.AddItem(item);
+		}
+	}
+	
+	private void onItemSelected(long id){
+		GD.Print("selected: ",tags[id]);
+		url = "https://itch.io/game-assets/free";
+		if(id!=0){
+			String tag="/tag-" + tags[id];
+			url = url + tag;
+		}
+		LoadItch(url);
 	}
 }
 #endif
