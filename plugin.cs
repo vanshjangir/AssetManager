@@ -55,17 +55,18 @@ class Assets
 	private ChromeDriver driver;
 	//harshit: D:\Godot\Godot-python\addons\AssetManager\chromedriver-win64
 	//vansh: E:\vansh\GodotTest\addons\AssetManager\chromedriver-win64
-	private string driverPath = @"E:\vansh\GodotTest\addons\AssetManager\chromedriver-win64";
+	//devansh: C:\Users\devan\Desktop\DesktopFiles\godot\addons\AssetManager\chromedriver-win64
+	private string driverPath = @"C:\Users\devan\Desktop\DesktopFiles\godot\addons\AssetManager\chromedriver-win64";
 
 	public Assets()
 	{
-		string download_dir = @"E:\vansh";
+		string download_dir = @"C:\Users\devan\Downloads";
 		ChromeDriverService service = ChromeDriverService.CreateDefaultService(driverPath);
 		service.HideCommandPromptWindow = true;
 		ChromeOptions coptions = new ChromeOptions();
 		coptions.AddArgument("--headless");
 		coptions.AddUserProfilePreference("download.default_directory", download_dir);
-		driver = new ChromeDriver(service, coptions);
+		driver = new ChromeDriver(service,coptions);
 	}
 
 	public List<Dictionary<string, string>> Load()
