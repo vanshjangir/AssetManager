@@ -7,6 +7,8 @@ using System.Collections.Generic;
 [Tool]
 public partial class HomePanel : Panel
 {
+	Assets assetsScraper = new Assets();
+	
 	
 	public override void _Ready()
 	{
@@ -62,12 +64,11 @@ public partial class HomePanel : Panel
 		yamateSound.Stream = GD.Load<AudioStream>("res://addons/AssetManager/button.wav");
 		yamateSound.Play((float)0.03);
 		
-		Assets assetsScraper = new Assets();
 		List<Dictionary<string, string>> assetList = assetsScraper.Load();
 		int count = 0;
 		foreach (var assetData in assetList)
 		{
-			string localPath = $@"D:\Godot\Godot-python\addons\AssetManager\tmp\image{count}.png";
+			string localPath = $@"E:\vansh\GodotTest\addons\AssetManager\tmp\image{count}.png";
 			string imageUrl = assetData["image"];
 			string imageText = assetData["text"];
 			string assetLink = assetData["link"];
@@ -83,8 +84,7 @@ public partial class HomePanel : Panel
 	
 	private void onDownloadButtonPressed(String assetLink){
 		GD.Print("download button pressed");
-		Assets assetsDownloader = new Assets();
-		assetsDownloader.download(assetLink);
+		assetsScraper.download(assetLink);
 		GD.Print("function ended!");
 	}
 }
