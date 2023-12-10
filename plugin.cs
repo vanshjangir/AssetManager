@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Chrome;
-
+using System.IO;
 [Tool]
 public partial class plugin : EditorPlugin
 {
@@ -56,7 +56,7 @@ class Assets
 	//harshit: D:\Godot\Godot-python\addons\AssetManager\chromedriver-win64
 	//vansh: E:\vansh\GodotTest\addons\AssetManager\chromedriver-win64
 	//devansh: C:\Users\devan\Desktop\DesktopFiles\godot\addons\AssetManager\chromedriver-win64
-	private string driverPath = @"C:\Users\devan\Desktop\DesktopFiles\godot\addons\AssetManager\chromedriver-win64";
+	private string driverPath = Path.Combine(Directory.GetCurrentDirectory(),"addons\\AssetManager\\chromedriver-win64");
 
 	public Assets()
 	{
