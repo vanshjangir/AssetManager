@@ -60,7 +60,9 @@ class Assets
 
 	public Assets()
 	{
-		string download_dir = @"C:\Users\devan\Downloads";
+		//Devansh: C:\Users\devan\Downloads
+		//Harshit: D:\Godot\assets
+		string download_dir = @"D:\Godot\assets";
 		ChromeDriverService service = ChromeDriverService.CreateDefaultService(driverPath);
 		service.HideCommandPromptWindow = true;
 		ChromeOptions coptions = new ChromeOptions();
@@ -69,13 +71,13 @@ class Assets
 		driver = new ChromeDriver(service,coptions);
 	}
 
-	public List<Dictionary<string, string>> Load()
+	public List<Dictionary<string, string>> Load(String url)
 	{
 		List<Dictionary<string, string>> assetList = new List<Dictionary<string, string>>();
 
 		try
 		{
-			driver.Navigate().GoToUrl("https://itch.io/game-assets/free");
+			driver.Navigate().GoToUrl(url);
 
 			int count = 0;
 			IReadOnlyCollection<IWebElement> parentElements = driver.FindElements(By.CssSelector(".game_cell.has_cover"));
@@ -100,7 +102,7 @@ class Assets
 				assetList.Add(assetData);
 				driver.ExecuteScript("window.scrollTo(0, 500)");
 
-				if (count >= 8)
+				if (count >= 24)
 				{
 					break;
 				}
