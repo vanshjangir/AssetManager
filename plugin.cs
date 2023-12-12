@@ -61,8 +61,8 @@ class Assets
 	public Assets()
 	{
 		//Devansh: C:\Users\devan\Downloads
-		//Harshit: D:\Godot\assets
-		string download_dir = @"D:\Godot\assets";
+		//Harshit: D:\Godot\assets or D:\Godot\Godot-python\assets
+		string download_dir = @"D:\Godot\Godot-python\assets";
 		ChromeDriverService service = ChromeDriverService.CreateDefaultService(driverPath);
 		service.HideCommandPromptWindow = true;
 		ChromeOptions coptions = new ChromeOptions();
@@ -113,7 +113,7 @@ class Assets
 		{
 			Console.WriteLine("Error: " + e.Message);
 		}
-
+		GD.Print("No Items Found!");
 		return assetList;
 	}
 
