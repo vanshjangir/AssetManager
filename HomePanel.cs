@@ -10,15 +10,22 @@ public partial class HomePanel : Panel
 {
 	Assets assetsScraper = new Assets();
 	OptionButton dropDown;
+	LineEdit searchBar;
 	String url;
-	String[] tags = {"Select tag","tileset","sprites","3d","2d","fighting"};
+	String[] tags = {"Select tag","3d","2d","audio","backgrounds","cute","fighting","fantasy","retro","sprites","tileset",};
 	
 	public override void _Ready()
 	{
 		url = "https://itch.io/game-assets/free";
 		
 		Button itch = GetNode<Button>("PanelContainer/VBoxContainer/HBoxContainer/Node2D/itch_button");
-		itch.Pressed += () => LoadItch("https://itch.io/game-assets/free");
+		itch.Pressed += () => onItchPressed();
+		
+		
+		searchBar = GetNode<LineEdit>("PanelContainer/VBoxContainer/Node2D2/LineEdit");
+//		searchBar.Clear();
+		String query = searchBar.Text;
+		searchBar.TextSubmitted += (query) =>  onTextSubmitted(query);
 		
 		dropDown = GetNode<OptionButton>("PanelContainer/VBoxContainer/Node2D/OptionButton");
 		var id = dropDown.GetSelectedId();
@@ -108,13 +115,29 @@ public partial class HomePanel : Panel
 		}
 	}
 	
+	private void onItchPressed(){
+		searchBar.Clear();
+		dropDown.Select(0);
+		LoadItch("https://itch.io/game-assets/free");
+	}
+	
 	private void onItemSelected(long id){
 		GD.Print("selected: ",tags[id]);
+		searchBar.Clear();
 		url = "https://itch.io/game-assets/free";
 		if(id!=0){
 			String tag="/tag-" + tags[id];
 			url = url + tag;
 		}
+		LoadItch(url);
+	}
+	
+	private void onTextSubmitted(String query){
+		dropDown.Select(0);
+		GD.Print("Searching tags: ",query);
+		url = "https://itch.io/game-assets/free";
+		String tag="/tag-" + query;
+		url = url + tag;
 		LoadItch(url);
 	}
 }
