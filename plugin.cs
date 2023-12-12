@@ -100,14 +100,14 @@ class Assets
 								   .GetAttribute("href")}
 				};
 				assetList.Add(assetData);
-				driver.ExecuteScript("window.scrollTo(0, 500)");
+				driver.ExecuteScript("window.scrollTo(0, 700)");
 
 				if (count >= 24)
 				{
 					break;
 				}
 			}
-			driver.ExecuteScript("window.scrollTo(0, 500)");
+			driver.ExecuteScript("window.scrollTo(0, 700)");
 		}
 		catch (Exception e)
 		{
