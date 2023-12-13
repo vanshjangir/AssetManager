@@ -106,6 +106,10 @@ public partial class HomePanel : Panel
 		GD.Print("download button pressed");
 		assetsScraper.download(assetLink);
 		GD.Print("Asset Downloaded!");
+		string download_dir = Path.Combine(Directory.GetCurrentDirectory(),"addons");
+		string extract_dir = Path.Combine(Directory.GetCurrentDirectory(),"addons\\assets");
+		assetsScraper.unzip(download_dir,extract_dir);
+		GD.Print("Asset Extracted!");
 	}
 	private void addDropItems(){
 		dropDown.Clear();

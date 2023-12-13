@@ -6,6 +6,8 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Chrome;
 using System.IO;
+using System.IO.Compression;
+using System.Threading;
 [Tool]
 public partial class plugin : EditorPlugin
 {
@@ -56,13 +58,17 @@ class Assets
 	//harshit: D:\Godot\Godot-python\addons\AssetManager\chromedriver-win64
 	//vansh: E:\vansh\GodotTest\addons\AssetManager\chromedriver-win64
 	//devansh: C:\Users\devan\Desktop\DesktopFiles\godot\addons\AssetManager\chromedriver-win64
+	string download_dir = Path.Combine(Directory.GetCurrentDirectory(),"addons");
+	string extract_dir = Path.Combine(Directory.GetCurrentDirectory(),"addons\\assets");
 	private string driverPath = Path.Combine(Directory.GetCurrentDirectory(),"addons\\AssetManager\\chromedriver-win64");
 
 	public Assets()
 	{
 		//Devansh: C:\Users\devan\Downloads
 		//Harshit: D:\Godot\assets or D:\Godot\Godot-python\assets
-		string download_dir = @"D:\Godot\Godot-python\assets";
+		//string download_dir = @"D:\Godot\Godot-python\assets";
+		//string download_dir = Path.Combine(Directory.GetCurrentDirectory(),"addons");
+		//string extract_dir = Path.Combine(Directory.GetCurrentDirectory(),"addons\\assets");
 		ChromeDriverService service = ChromeDriverService.CreateDefaultService(driverPath);
 		service.HideCommandPromptWindow = true;
 		ChromeOptions coptions = new ChromeOptions();
@@ -144,12 +150,28 @@ class Assets
 				GD.Print("k");
 			}
 			GD.Print("kx");
-			//Thread.Sleep(2000);
+			//Thread.Sleep(50000);
+			create(download_dir,extract_dir);
 
 		}
 		catch (Exception e)
 		{
 			Console.WriteLine("Error: " + e.Message);
+		}
+	}
+	public void create(string download_dir,string extract_dir)
+	{
+		if(!Directory.Exists(extract_dir))
+		{
+			Directory.CreateDirectory(extract_dir);
+		}
+	}
+	public void unzip(string download_dir, string extract_dir)
+	{
+		string[] zipFiles = Directory.GetFiles(download_dir,"*.zip");
+		foreach(string zipFilePath in zipFiles)
+		{
+			ZipFile.ExtractToDirectory(zipFilePath,extract_dir);
 		}
 	}
 }
